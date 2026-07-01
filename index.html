@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Lotus Temple — Sacred Sanctuary Stays · Ashland, Oregon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { overflow-x: hidden; width: 100%; }
+:root {
+  --gold: #C9A96E; --gold-light: #E8D5B0; --gold-dark: #8B6914;
+  --forest: #3A2E1E; --forest-mid: #6B4E2A; --forest-light: #9A7A50;
+  --cream: #FFFEF9; --warm-white: #FFFFFF;
+  --text-dark: #3A2E1E; --text-mid: #5C4A30; --text-light: #7A6245;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--text-dark); font-weight: 300; letter-spacing: 0.02em; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 1.1rem 2rem; display: flex; justify-content: space-between; align-items: center;
+  background: rgba(58,46,30,0.94); backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(201,169,110,0.2);
+}
+.nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 400; color: var(--gold-light); letter-spacing: 0.15em; text-decoration: none; }
+.nav-wordmark { font-size: 0.52rem; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(232,213,176,0.55); display: block; margin-top: 2px; }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(232,213,176,0.75); text-decoration: none; transition: color 0.3s; }
+.nav-links a:hover { color: var(--gold); }
+.nav-cta { font-size: 0.64rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-dark); background: var(--gold); padding: 0.6rem 1.4rem; text-decoration: none; transition: background 0.3s; white-space: nowrap; }
+.nav-cta:hover { background: var(--gold-light); }
+
+/* HERO */
+.hero { height: 100vh; min-height: 600px; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
+.hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center 40%; }
+.hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,8,4,0.4) 0%, rgba(10,8,4,0.1) 35%, rgba(10,8,4,0.3) 65%, rgba(10,8,4,0.72) 100%); }
+.hero-content { position: relative; z-index: 1; max-width: 820px; padding: 1.5rem; }
+.hero-eyebrow { font-size: 0.6rem; letter-spacing: 0.38em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; }
+.hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.6rem, 6.5vw, 5.5rem); font-weight: 300; color: #FDFAF3; line-height: 1.08; margin-bottom: 1.25rem; text-shadow: 0 2px 40px rgba(0,0,0,0.4); }
+.hero-title em { font-style: italic; color: var(--gold-light); }
+.hero-sub { font-size: clamp(0.88rem, 2vw, 1rem); font-weight: 300; color: rgba(253,250,243,0.85); line-height: 1.85; max-width: 560px; margin: 0 auto 2rem; }
+.hero-btns { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+.hero-btn { display: inline-block; font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-dark); background: var(--gold); padding: 0.9rem 2rem; text-decoration: none; transition: background 0.3s; }
+.hero-btn:hover { background: var(--gold-light); }
+.hero-btn-ghost { background: transparent; color: var(--gold-light); border: 1px solid rgba(201,169,110,0.55); }
+.hero-btn-ghost:hover { background: rgba(201,169,110,0.12); color: var(--gold); }
+.scroll-hint { position: absolute; bottom: 1.75rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.4rem; color: var(--gold-light); opacity: 0.55; animation: floatDown 2.5s ease-in-out infinite; }
+.scroll-hint span { font-size: 0.52rem; letter-spacing: 0.28em; text-transform: uppercase; }
+.scroll-line { width: 1px; height: 32px; background: var(--gold-light); }
+@keyframes floatDown { 0%,100%{transform:translateX(-50%) translateY(0);opacity:0.55}50%{transform:translateX(-50%) translateY(7px);opacity:0.85} }
+
+/* SHARED */
+.section-eyebrow { font-size: 0.6rem; letter-spacing: 0.36em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 0.9rem; }
+.section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.9rem, 3.8vw, 3rem); font-weight: 300; color: var(--forest); line-height: 1.15; margin-bottom: 1.4rem; }
+.section-title em { font-style: italic; }
+.divider { width: 50px; height: 1px; background: var(--gold); margin: 0 auto 1.75rem; }
+.container { max-width: 1120px; margin: 0 auto; }
+
+/* INTRO */
+.intro-strip { background: var(--warm-white); padding: 5rem 1.5rem; text-align: center; }
+.intro-body { font-size: 1rem; font-weight: 300; line-height: 2; color: var(--text-mid); max-width: 660px; margin: 0 auto 3rem; }
+.pillars { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; max-width: 900px; margin: 0 auto; }
+.pillar { padding: 2rem 1.5rem; border: 1px solid var(--gold-light); background: var(--cream); text-align: left; }
+.pillar-glyph { font-size: 1.5rem; margin-bottom: 0.9rem; display: block; }
+.pillar-title { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 400; color: var(--forest); margin-bottom: 0.65rem; }
+.pillar-body { font-size: 0.82rem; line-height: 1.9; color: var(--text-mid); }
+
+
+.reset-section { background: var(--cream); padding: 5rem 1.5rem; text-align: center; }
+.reset-section .grid-body { margin: 0 auto 1.5rem; text-align: left; }
+@media (max-width: 768px) { .reset-section { padding: 3.5rem 1.25rem; } }
+
+/* LAND */
+.land-section { background: #3A2E1E; padding: 5rem 0 0; }
+.land-header { text-align: center; padding: 0 1.5rem 2.5rem; }
+.land-header .section-title { color: var(--gold-light); }
+.land-header .section-eyebrow { color: var(--gold); }
+.land-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 300px 300px; gap: 3px; }
+.land-img { background-size: cover; background-position: center; transition: opacity 0.4s; }
+.land-img.tall { grid-row: span 2; }
+.land-caption { background: #3A2E1E; padding: 1.5rem 2rem; text-align: center; }
+.land-caption p { font-size: 0.72rem; letter-spacing: 0.15em; color: rgba(232,213,176,0.5); text-transform: uppercase; }
+
+/* GRID SECTION */
+.grid-section { background: #2E2415; color: var(--gold-light); padding: 5.5rem 1.5rem; text-align: center; position: relative; overflow: hidden; }
+.grid-section::before { content:''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(201,169,110,0.07) 0%, transparent 70%); }
+.grid-section .section-title { color: var(--gold-light); position: relative; }
+.grid-section .section-eyebrow { color: var(--gold); position: relative; }
+.grid-body { font-size: 0.92rem; line-height: 1.95; color: rgba(232,213,176,0.75); max-width: 640px; margin: 0 auto 2.5rem; position: relative; }
+.grid-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; max-width: 860px; margin: 0 auto 2.5rem; position: relative; }
+.grid-stat { padding: 1.75rem 1.25rem; border: 1px solid rgba(201,169,110,0.22); }
+.grid-stat-title { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; color: var(--gold); display: block; line-height: 1.3; margin-bottom: 0.6rem; }
+.grid-stat-label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(232,213,176,0.6); line-height: 1.65; }
+
+/* ROOMS */
+.rooms-section { background: var(--cream); padding: 5.5rem 1.5rem; }
+.rooms-header { text-align: center; margin-bottom: 4rem; }
+.rooms-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 2px; }
+.room-card { background: var(--warm-white); overflow: hidden; transition: transform 0.35s ease; }
+.room-card:hover { transform: scale(1.01); z-index: 2; }
+.room-photo { height: 280px; background-size: cover; background-position: center; position: relative; }
+.room-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 45%, rgba(15,12,8,0.65) 100%); }
+.room-price-tag { position: absolute; bottom: 1.1rem; right: 1.1rem; background: rgba(15,12,8,0.9); color: var(--gold); font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; padding: 0.38rem 1rem; }
+.room-body { padding: 1.75rem 2rem 2.25rem; }
+.room-name { font-family: 'Cormorant Garamond', serif; font-size: 1.65rem; font-weight: 400; color: var(--forest); margin-bottom: 0.3rem; }
+.room-subtitle { font-size: 0.62rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 1rem; }
+.room-desc { font-size: 0.85rem; line-height: 1.95; color: var(--text-mid); margin-bottom: 1.4rem; }
+.room-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1.4rem; }
+.tag { font-size: 0.58rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--forest-mid); border: 1px solid var(--forest-light); padding: 0.25rem 0.65rem; }
+.room-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 1.1rem; border-top: 1px solid var(--gold-light); }
+.price { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 400; color: var(--forest); }
+.price-note { font-size: 0.62rem; letter-spacing: 0.08em; color: var(--text-light); margin-top: 0.1rem; }
+.book-btn { font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: #FFFEF9; background: #6B4E2A; padding: 0.7rem 1.4rem; text-decoration: none; transition: background 0.3s; white-space: nowrap; }
+.book-btn:hover { background: var(--gold); color: var(--text-dark); }
+
+/* EXPERIENCE */
+.exp-section { background: var(--warm-white); padding: 5.5rem 1.5rem; }
+.exp-header { text-align: center; margin-bottom: 3rem; }
+.exp-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.25rem; }
+.exp-card { padding: 2rem 1.25rem; border-top: 2px solid var(--gold); }
+.exp-icon { font-size: 1.4rem; margin-bottom: 1rem; display: block; }
+.exp-title { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; color: var(--forest); margin-bottom: 0.65rem; }
+.exp-body { font-size: 0.8rem; line-height: 1.9; color: var(--text-mid); }
+
+/* SPLIT */
+.split-section { display: grid; grid-template-columns: 1fr 1fr; min-height: 520px; }
+.split-photo { background-size: cover; background-position: center; }
+.split-body { background: #3A2E1E; display: flex; align-items: center; padding: 4rem 3.5rem; }
+.split-inner { max-width: 420px; }
+.split-inner .section-eyebrow { color: var(--gold); }
+.split-inner .section-title { color: var(--gold-light); font-size: 2rem; }
+.split-inner .section-title em { color: var(--gold); }
+.split-text { font-size: 0.88rem; line-height: 2; color: rgba(232,213,176,0.75); margin-bottom: 1.75rem; }
+.split-btn { font-size: 0.64rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dark); background: var(--gold); padding: 0.8rem 1.8rem; text-decoration: none; display: inline-block; transition: background 0.3s; }
+.split-btn:hover { background: var(--gold-light); }
+
+/* TESTIMONIAL */
+.testimonial-section { background: var(--cream); text-align: center; padding: 6rem 1.5rem; }
+.quote-open { font-family: 'Cormorant Garamond', serif; font-size: 5rem; color: var(--gold-light); line-height: 0.4; margin-bottom: 1.25rem; display: block; }
+.quote-text { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.15rem,2.2vw,1.7rem); font-weight: 300; font-style: italic; color: var(--forest); line-height: 1.75; max-width: 680px; margin: 0 auto 1.75rem; }
+.quote-author { font-size: 0.63rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--gold-dark); }
+
+/* BOOKING */
+.booking-section { background: #2E2415; text-align: center; padding: 6rem 1.5rem; position: relative; overflow: hidden; }
+.booking-section::before { content:''; position: absolute; inset: 0; background: radial-gradient(ellipse at center top, rgba(201,169,110,0.09) 0%, transparent 60%); }
+.booking-section .section-title { color: var(--gold-light); position: relative; }
+.booking-section .section-eyebrow { color: var(--gold); position: relative; }
+.booking-body { font-size: 0.92rem; line-height: 2; color: rgba(232,213,176,0.72); max-width: 540px; margin: 0 auto 2.25rem; position: relative; }
+.booking-btns { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; position: relative; }
+.booking-btn { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dark); background: var(--gold); padding: 1rem 2.5rem; text-decoration: none; transition: background 0.3s; display: inline-block; }
+.booking-btn:hover { background: var(--gold-light); }
+.booking-btn-ghost { background: transparent; color: var(--gold-light); border: 1px solid rgba(201,169,110,0.45); }
+.booking-btn-ghost:hover { background: rgba(201,169,110,0.1); color: var(--gold); }
+.booking-note { margin-top: 1.75rem; font-size: 0.63rem; letter-spacing: 0.16em; color: rgba(232,213,176,0.38); text-transform: uppercase; position: relative; }
+
+/* FAQ */
+.faq-section { background: var(--warm-white); padding: 5.5rem 1.5rem; }
+.faq-header { text-align: center; margin-bottom: 3rem; }
+.faq-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.75rem; }
+.faq-item { padding: 1.75rem 1.75rem 1.75rem 2rem; border-left: 2px solid var(--gold); }
+.faq-q { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 500; color: var(--forest); margin-bottom: 0.65rem; }
+.faq-a { font-size: 0.82rem; line-height: 1.95; color: var(--text-mid); }
+
+
+.booking-model-section { background: var(--cream); padding: 5.5rem 1.5rem; }
+.rate-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 800px; margin: 3rem auto 0; }
+.rate-card { background: var(--warm-white); border: 1px solid var(--gold-light); padding: 2rem 1.75rem; }
+.rate-card-gold { background: #FBF3E2; border: 1px solid var(--gold); }
+.rate-label { font-size: 0.62rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 1.25rem; text-align: center; }
+.rate-row { display: flex; justify-content: space-between; align-items: center; padding: 0.65rem 0; border-bottom: 1px solid var(--gold-light); font-size: 0.85rem; color: var(--text-mid); }
+.rate-row:last-child { border-bottom: none; }
+.rate-amt { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--forest); font-weight: 400; }
+.whole-sanctuary { background: #3A2E1E; margin-top: 4rem; padding: 4rem 3rem; }
+.whole-sanctuary-text { max-width: 720px; margin: 0 auto; text-align: center; }
+.whole-sanctuary-text p[style*="margin-bottom: 1.5rem"] { text-align: left; }
+
+@media (max-width: 768px) {
+  .rate-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .rate-card { padding: 1.5rem 1.25rem; }
+  .whole-sanctuary { padding: 2.5rem 1.25rem; margin-top: 2.5rem; }
+  .booking-model-section { padding: 4rem 1.25rem; }
+}
+
+/* FOOTER */
+footer { background: var(--text-dark); text-align: center; padding: 3.5rem 1.5rem; border-top: 1px solid rgba(201,169,110,0.1); }
+.footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.55rem; font-weight: 300; color: var(--gold-light); letter-spacing: 0.16em; margin-bottom: 0.4rem; }
+.footer-place { font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(232,213,176,0.38); margin-bottom: 1.75rem; }
+.footer-links { display: flex; justify-content: center; gap: 2rem; list-style: none; margin-bottom: 1.75rem; flex-wrap: wrap; }
+.footer-links a { font-size: 0.63rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(232,213,176,0.45); text-decoration: none; transition: color 0.3s; }
+.footer-links a:hover { color: var(--gold); }
+.footer-fine { font-size: 0.68rem; color: rgba(232,213,176,0.25); }
+
+/* ── MOBILE ── */
+@media (max-width: 768px) {
+  nav { padding: 0.9rem 1.25rem; }
+  .nav-links { display: none; }
+  .nav-logo { font-size: 1.1rem; }
+
+  .hero-eyebrow { font-size: 0.52rem; letter-spacing: 0.25em; }
+  .hero-sub { font-size: 0.88rem; }
+  .hero-btns { flex-direction: column; align-items: center; }
+  .hero-btn { width: 100%; max-width: 260px; text-align: center; }
+
+  .pillars { grid-template-columns: 1fr; gap: 1rem; }
+  .pillar { padding: 1.5rem 1.25rem; }
+
+  .land-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 180px 180px 180px; }
+  .land-img.tall { grid-row: span 1; }
+
+  .grid-stats { grid-template-columns: 1fr; gap: 1rem; }
+  .grid-stat { padding: 1.5rem 1.25rem; }
+
+  .rooms-grid { grid-template-columns: 1fr; }
+  .room-photo { height: 240px; }
+  .room-body { padding: 1.4rem 1.25rem 1.75rem; }
+  .room-name { font-size: 1.45rem; }
+  .room-footer { flex-direction: column; align-items: flex-start; gap: 0.9rem; }
+  .book-btn { width: 100%; text-align: center; padding: 0.8rem 1rem; }
+
+  .exp-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .exp-card { padding: 1.5rem 1rem; }
+
+  .split-section { grid-template-columns: 1fr; }
+  .split-photo { min-height: 280px; }
+  .split-body { padding: 2.5rem 1.5rem; }
+  .split-inner { max-width: 100%; }
+
+  .faq-grid { grid-template-columns: 1fr; }
+  .faq-item { padding: 1.5rem 1.25rem 1.5rem 1.5rem; }
+
+  .booking-btns { flex-direction: column; align-items: center; }
+  .booking-btn { width: 100%; max-width: 260px; text-align: center; }
+
+  .footer-links { gap: 1.25rem; }
+  .testimonial-section { padding: 4rem 1.25rem; }
+  .intro-strip { padding: 3.5rem 1.25rem; }
+  .rooms-section, .exp-section, .faq-section { padding: 4rem 1.25rem; }
+  .booking-section { padding: 4rem 1.25rem; }
+  .grid-section { padding: 4rem 1.25rem; }
+}
+
+@media (max-width: 480px) {
+  .exp-grid { grid-template-columns: 1fr; }
+  .land-grid { grid-template-columns: 1fr; grid-template-rows: repeat(5, 200px); }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">
+    Lotus Temple
+    <span class="nav-wordmark">Sacred Sanctuary · Ashland, Oregon</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#reset">The Reset</a></li>
+    <li><a href="#rooms">Sacred Stays</a></li>
+    <li><a href="#land">The Land</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#book">Inquire</a></li>
+  </ul>
+  <a href="#book" class="nav-cta">Reserve Your Stay</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Ashland, Oregon &nbsp;·&nbsp; Bordering a 500 Acre Elk Reserve</p>
+    <h1 class="hero-title">Come home<br>to <em>yourself</em></h1>
+    <p class="hero-sub">Lotus Temple is a living sanctuary on ancient gridded land — sacred rooms charged with intention, prayer gardens, and golden valley views. A place where something deep in you finally exhales.</p>
+    <div class="hero-btns">
+      <a href="#rooms" class="hero-btn">Explore Sacred Stays</a>
+      <a href="#land" class="hero-btn hero-btn-ghost">See the Land</a>
+    </div>
+  </div>
+  <div class="scroll-hint"><span>Arrive</span><div class="scroll-line"></div></div>
+</section>
+
+<section class="intro-strip">
+  <div class="container">
+    <p class="section-eyebrow">The Sanctuary</p>
+    <h2 class="section-title" style="text-align:center">Where the land <em>does the healing</em></h2>
+    <div class="divider"></div>
+    <p class="intro-body">Perched above the Rogue Valley on sacred land overlooking Ashland, bordering a 500 acre elk reserve, the Lotus Temple is a sanctuary of peace when you enter. Each room was made with intention — for your soul to remember other realms, to rest in frequencies that predate memory. The land itself carries a charge that shifts something in the body before you even unpack.</p>
+    <div class="pillars">
+      <div class="pillar">
+        <span class="pillar-glyph">🦌</span>
+        <h3 class="pillar-title">Regenerative Land</h3>
+        <p class="pillar-body">Nestled up to a 500 acre elk reserve, with the intention to purchase and protect the surrounding lands. Ancient grids run through this soil. You feel it when you arrive.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-glyph">🌸</span>
+        <h3 class="pillar-title">Prayer Garden</h3>
+        <p class="pillar-body">A living prayer garden to meditate, relax, and receive answers, healing, or guidance. Meditate with the lavender garden and let the land speak back to you.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-glyph">✨</span>
+        <h3 class="pillar-title">Restore & Extend Vitality</h3>
+        <p class="pillar-body">Sacred art and altars in every room. Optional add-on sessions in Energy healing or Vedic astrology — practices designed to give you answers, restore and extend your vitality at every level.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reset-section" id="reset">
+  <div class="container">
+    <p class="section-eyebrow">The Invitation</p>
+    <h2 class="section-title" style="text-align:center">Nervous System <em>Reset</em></h2>
+    <div class="divider"></div>
+    <p class="grid-body" style="color: var(--text-mid); max-width: 700px;">
+      Come and relax your nervous system. The Earth holds energetic grid points, and Lotus Temple is a very intentional sanctuary designed to give your body a complete reset as you rest on a powerful node along dragon ley lines.
+    </p>
+    <p class="grid-body" style="color: var(--text-mid); max-width: 700px;">
+      We invite you to put your phone away, meditate with the land, and give yourself the reset you deserve. We are so busy day to day, always checking, always scrolling. Come give yourself a complete rewiring from the everyday world into a harmonious vortex that cleanses your energetic field and aligns you with your highest timeline. When your energy bodies and your physical body come into alignment, the nervous system follows.
+    </p>
+    <p class="grid-body" style="color: var(--text-mid); max-width: 700px;">
+      Stay in one of the magical realms and let past lives, ancient remembrances, and more of your soul come online. Listen beyond the noise on this quiet mountain — so peaceful, and only about 20 minutes from town in Ashland, Oregon. So much to do in the region. This sanctuary sits on the same lines as Mount Shasta, and a shuttle van takes guests there upon request.
+    </p>
+    <p class="grid-body" style="color: var(--text-mid); max-width: 700px; margin-bottom: 0;">
+      Create your own mini retreat with all the different offerings — from masterful healing sessions, to sound baths, to quiet time in nature, meditation, and yoga. Design your stay with the schedule you would like, with additional offerings available upon request.
+    </p>
+  </div>
+</section>
+
+<section class="land-section" id="land">
+  <div class="land-header">
+    <p class="section-eyebrow">The Grounds</p>
+    <h2 class="section-title">Ancient grids run through<br><em>this land</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="land-grid">
+    <div class="land-img tall" id="landMain"></div>
+    <div class="land-img" id="landA"></div>
+    <div class="land-img" id="landB"></div>
+    <div class="land-img" id="landC"></div>
+    <div class="land-img" id="landD"></div>
+  </div>
+  <div class="land-caption"><p>Ancient grids · Prayer garden · Lavender labyrinth · Kuan Yin · Temple on the hillside</p></div>
+</section>
+
+<section class="rooms-section" id="rooms">
+  <div class="container">
+    <div class="rooms-header">
+      <p class="section-eyebrow">Sacred Stays</p>
+      <h2 class="section-title">Rooms made with <em>intention</em></h2>
+      <div class="divider"></div>
+      <p style="font-size:0.86rem;line-height:1.95;color:var(--text-mid);max-width:560px;margin:0 auto">Each room was made with intention for your soul to remember other realms. You may feel drawn to one before you even read the description. Trust that.</p>
+    </div>
+    <div class="rooms-grid">
+
+      <!-- LEMURIA $333 -->
+      <div class="room-card">
+        <div class="room-photo" id="rLemuria"><div class="room-overlay"></div><div class="room-price-tag">$333 / night</div></div>
+        <div class="room-body">
+          <h3 class="room-name">Lemuria</h3>
+          <p class="room-subtitle">Ancient Waters · Oceanic Memory · Remembrance</p>
+          <p class="room-desc">A canopy bed draped in sheer teal, a remembrance of Lemuria, and the Rogue Valley stretching beyond the windows. This room holds the frequency of the first civilization — a cellular remembering older than thought. Guests sleep deeply here. Something unlocks.</p>
+          <div class="room-tags"><span class="tag">Queen Canopy Bed</span><span class="tag">Private Bath</span><span class="tag">Valley View</span><span class="tag">Private Balcony</span></div>
+          <div class="room-footer">
+            <div><div class="price">$333</div><div class="price-note">per night · up to 2 guests</div></div>
+            <a href="#book" class="book-btn">Inquire to Book</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- GODDESS $222 -->
+      <div class="room-card">
+        <div class="room-photo" id="rGoddess"><div class="room-overlay"></div><div class="room-price-tag">$222 / night</div></div>
+        <div class="room-body">
+          <h3 class="room-name">Goddess Room</h3>
+          <p class="room-subtitle">Feminine Alchemy · Shakti · Radiance</p>
+          <p class="room-desc">A grand tufted velvet bed, star-light curtains, and soft lavender ambiance glowing through the trees. This room was made to hold the full spectrum of the feminine. Come here to receive. Your soul knows this frequency and has been waiting to return to it.</p>
+          <div class="room-tags"><span class="tag">Queen Bed</span><span class="tag">Garden View</span><span class="tag">Private Balcony</span><span class="tag">Altar Space</span><span class="tag">Goddess Frequency</span><span class="tag">Shared Bath</span></div>
+          <div class="room-footer">
+            <div><div class="price">$222</div><div class="price-note">per night · up to 2 guests</div></div>
+            <a href="#book" class="book-btn">Inquire to Book</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ANGEL'S DAWN $222 -->
+      <div class="room-card">
+        <div class="room-photo" id="rAngel"><div class="room-overlay"></div><div class="room-price-tag">$222 / night</div></div>
+        <div class="room-body">
+          <h3 class="room-name">Angel's Dawn</h3>
+          <p class="room-subtitle">Light Codes · Morning Clarity · Guardian Presence</p>
+          <p class="room-desc">White satin beds, gold angel wings on the walls, a pentagonal wooden mirror framing the morning sky over rolling hills. This room holds the light. Sleep in forest stillness, wake with the valley laid before you like an offering. Guests return to this room again and again for the quality of rest it holds.</p>
+          <div class="room-tags"><span class="tag">2 Twin Beds</span><span class="tag">Angel Wings</span><span class="tag">Mountain View</span><span class="tag">Morning Light</span><span class="tag">Shared Bath</span></div>
+          <div class="room-footer">
+            <div><div class="price">$222</div><div class="price-note">per night · up to 2 guests</div></div>
+            <a href="#book" class="book-btn">Inquire to Book</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- MERLIN'S MAGIC $444 -->
+      <div class="room-card">
+        <div class="room-photo" id="rMerlin"><div class="room-overlay"></div><div class="room-price-tag">$444 / night</div></div>
+        <div class="room-body">
+          <h3 class="room-name">Merlin's Magic</h3>
+          <p class="room-subtitle">Alchemy · Mystery · Deep Transformation</p>
+          <p class="room-desc">A king bed in a room painted floor to ceiling with an enchanted forest — fairies, unicorns, waterfalls, ancient trees, and magic — with a sacred lace tipi for the inner child to play again and a private bath. This is the room for the seeker, the alchemist. Magic is structural here. Something tends to shift in guests who sleep in this room.</p>
+          <div class="room-tags"><span class="tag">King Bed</span><span class="tag">Private Bath</span><span class="tag">Sacred Tipi</span><span class="tag">Jungle Mural</span><span class="tag">Garden Doors</span></div>
+          <div class="room-footer">
+            <div><div class="price">$444</div><div class="price-note">per night · up to 2 guests</div></div>
+            <a href="#book" class="book-btn">Inquire to Book</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ANCIENT KEMET $222 -->
+      <div class="room-card">
+        <div class="room-photo" id="rAncientKemet"><div class="room-overlay"></div><div class="room-price-tag">$222 / night</div></div>
+        <div class="room-body">
+          <h3 class="room-name">Ancient Kemet</h3>
+          <p class="room-subtitle">Royal Lineage · Mystery Schools · Sovereignty</p>
+          <p class="room-desc">This room holds the science of the Egyptian mystery schools — the understanding that the body is a temple, consciousness is the real material, and sovereignty begins within. Your soul remembers this.</p>
+          <div class="room-tags"><span class="tag">Queen Bed</span><span class="tag">Garden View</span><span class="tag">Sacred Space</span><span class="tag">Mystery School Frequency</span></div>
+          <div class="room-footer">
+            <div><div class="price">$222</div><div class="price-note">per night · up to 2 guests</div></div>
+            <a href="#book" class="book-btn">Inquire to Book</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- DRAGON ROOM $333 -->
+      <div class="room-card">
+        <div class="room-photo" id="rDragon"><div class="room-overlay"></div><div class="room-price-tag">$333 / night</div></div>
+        <div class="room-body">
+          <h3 class="room-name">Dragon Room</h3>
+          <p class="room-subtitle">Guardian of Thresholds · Sacred Power · Cosmic Wisdom</p>
+          <p class="room-desc">A four-poster bed in gold and white, presided over by a luminous dragon painting — keeper of ancient wisdom, guardian between worlds. Gold dragon altar on the nightstand and a private bath. For those ready to meet their own power, to remember what they came here to do, held by the oldest guardians of sacred knowledge.</p>
+          <div class="room-tags"><span class="tag">Queen Bed</span><span class="tag">Private Bath</span><span class="tag">Dragon Painting</span><span class="tag">Own Entrance</span><span class="tag">Sacred Art</span></div>
+          <div class="room-footer">
+            <div><div class="price">$333</div><div class="price-note">per night · up to 2 guests</div></div>
+            <a href="#book" class="book-btn">Inquire to Book</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CAMELOT $333 -->
+      <div class="room-card" style="grid-column: span 2;">
+        <div style="display:grid; grid-template-columns: 1fr 1fr;">
+          <div class="room-photo" id="rCamelot"><div class="room-overlay"></div><div class="room-price-tag">$444 / night</div></div>
+          <div class="room-body" style="display:flex; flex-direction:column; justify-content:center;">
+            <h3 class="room-name">Lotus Room</h3>
+            <p class="room-subtitle">Dreamtime · Biggest Room · Private Entry</p>
+            <p class="room-desc">A silver tufted headboard with dream catcher above, lotus flower bedding in soft pinks and teals, and an orange velvet chair beside a window that looks out over rolling hills and the valley below. A private balcony opens to the morning air. Attached to the kitchen with its own private side-door entry. The biggest room in the temple — a true sanctuary within the sanctuary.</p>
+            <div class="room-tags"><span class="tag">King Bed</span><span class="tag">Private Bath</span><span class="tag">Private Balcony</span><span class="tag">Valley View</span><span class="tag">Big Bathtub</span><span class="tag">Private Entry</span></div>
+            <div class="room-footer">
+              <div><div class="price">$333</div><div class="price-note">per night · up to 2 guests</div></div>
+              <a href="#book" class="book-btn">Inquire to Book</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      
+      <!-- ENCHANTED FOREST -->
+      <div class="room-card">
+        <div class="room-photo" id="rEnchanted" style="background-image:url('images/garden_arch_lavender.jpg')"><div class="room-overlay"></div><div class="room-price-tag">$222 / night</div></div>
+        <div class="room-body">
+          <h3 class="room-name">Enchanted Forest</h3>
+          <p class="room-subtitle">Magic · Mystery · Inner Child</p>
+          <p class="room-desc">A queen bed in an enchanted forest with a beautiful view of the garden from your private balcony. This room carries the energy of the magical, the playful, and the wonderstruck. Come here to reconnect with the part of you that still believes in magic — because it was never wrong to.</p>
+          <div class="room-tags"><span class="tag">Queen Bed</span><span class="tag">Shared Bath</span><span class="tag">Garden View</span><span class="tag">Private Balcony</span></div>
+          <div class="room-footer">
+            <div><div class="price">$222</div><div class="price-note">per night · up to 2 guests</div></div>
+            <a href="#book" class="book-btn">Inquire to Book</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CAMELOT -->
+      <div class="room-card">
+        <div class="room-photo" id="rNewCamelot" style="background-image:url('images/sanctuary_aerial3.jpg')"><div class="room-overlay"></div><div class="room-price-tag">$333 / night</div></div>
+        <div class="room-body">
+          <h3 class="room-name">Camelot</h3>
+          <p class="room-subtitle">City of Light · Sacred Quest · Soul Memory</p>
+          <p class="room-desc">A queen bed looking at a future city of light — meditating upon the vision will bring you into a beautiful realm. A private balcony opens to the morning air. This room carries the frequency of Camelot, which was never just a place. It was a state of remembering.</p>
+          <div class="room-tags"><span class="tag">Queen Bed</span><span class="tag">Private Bath</span><span class="tag">Private Balcony</span><span class="tag">Valley View</span></div>
+          <div class="room-footer">
+            <div><div class="price">$333</div><div class="price-note">per night · up to 2 guests</div></div>
+            <a href="#book" class="book-btn">Inquire to Book</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- SHAMAN DREAM -->
+      <div class="room-card" style="grid-column: span 2;">
+        <div style="display:grid; grid-template-columns: 1fr 1fr;">
+          <div class="room-body" style="display:flex; flex-direction:column; justify-content:center; order:2;">
+            <h3 class="room-name">Shaman Dream</h3>
+            <p class="room-subtitle">Ceremony · Heaven Meets Earth · Vision</p>
+            <p class="room-desc">A meditative ceremonial space painted floor to ceiling with sacred animal medicine, ancestral fires, and the dreaming world &mdash; owl, unicorn, and dragon spirits keep watch over this room. Heaven and earth meet here. This space is available for meditation, yoga, and sadhana. Inquire for availability and rates.</p>
+            <div class="room-tags"><span class="tag">Ceremonial Space</span><span class="tag">Sacred Murals</span><span class="tag">Meditation</span><span class="tag">Yoga & Sadhana</span></div>
+            <div class="room-footer">
+              <div><div class="price" style="font-size:1.2rem">Inquire</div><div class="price-note">for availability & rates</div></div>
+              <a href="#book" class="book-btn">Inquire to Book</a>
+            </div>
+          </div>
+          <div class="room-photo" id="rShaman" style="order:1;"><div class="room-overlay"></div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="grid-section">
+  <div class="container">
+    <p class="section-eyebrow">The Living Grid</p>
+    <h2 class="section-title">Ancient gridlines run<br><em>through this land</em></h2>
+    <div class="divider"></div>
+    <p class="grid-body">The Earth has an energy grid. Ancient cultures knew it, mapped it, built their sacred sites along its currents, and transmitted knowledge through it. What the Druids called dragon lines, what Aboriginal peoples walked as song lines for tens of thousands of years, what indigenous cultures across every continent encoded into ceremony and architecture — these electromagnetic pathways are scientifically proven now, what the original people have known for centuries, and they run through the land at the Lotus Temple.</p>
+    <div class="grid-stats">
+      <div class="grid-stat">
+        <span class="grid-stat-title">Ley Lines</span>
+        <span class="grid-stat-label">Electromagnetic pathways that run through the planet's surface, shaping the energetic environment of every living thing on them — including you, while you sleep</span>
+      </div>
+      <div class="grid-stat">
+        <span class="grid-stat-title">Power Spots</span>
+        <span class="grid-stat-label">Where multiple lines converge, the veil between dimensions grows thin. Lotus Temple sits at one of these convergences — the field is measurably different here, and the body knows it</span>
+      </div>
+      <div class="grid-stat">
+        <span class="grid-stat-title">Grid Healing</span>
+        <span class="grid-stat-label">The grids respond to consciousness. As you rest on this land, the coherent field works on you. Ancient traditions understood what science is beginning to confirm: healing land heals people</span>
+      </div>
+    </div>
+    <p class="grid-body" style="margin-bottom:1.5rem">When you arrive at Lotus Temple, something shifts before you even unpack. Guests describe it consistently: a loosening, a quieting, a sense of being held by something older than memory. This is the grid. The landscape speaks a frequency that bypasses the thinking mind and goes straight to the cellular level.</p>
+    <p class="grid-body" style="margin-bottom:0">The Grail myths were pointing here. The search for the Holy Grail was always a search for the most potent intersections of Earth energy — the places where dimensional access becomes possible, where healing accelerates, where the seeker finds what they came looking for. You don't have to understand the science. You will feel it when you arrive.</p>
+  </div>
+</section>
+
+<section class="exp-section" id="rooms">
+  <div class="container">
+    <div class="rooms-header">
+      <p class="section-eyebrow">Sacred Stays</p>
+      <h2 class="section-title">Rooms made with <em>intention</em></h2>
+      <div class="divider"></div>
+      <p style="font-size:0.86rem;line-height:1.95;color:var(--text-mid);max-width:560px;margin:0 auto">Each room was made with intention for your soul to remember other realms. You may feel drawn to one before you even read the description. Trust that.</p>
+    </div>
+    <div class="rooms-grid">
+
+      <!-- LEMURIA $333 -->
+      <div class="room-card">
+        <div class="room-photo" id="rLemuria"><div class="room-overlay"></div><div class="room-price-tag">$333 / night</div></div>
+        <div class="room-body">
+          <h3 class="room-name">Lemuria</h3>
+          <p class="room-subtitle">Ancient Waters · Oceanic Memory · Remembrance</p>
+          <p class="room-desc">A canopy bed draped in sheer teal, a remembrance of Lemuria, and the Rogue Valley stretching beyond the windows. This room holds the frequency of the first civilization — a cellular remembering older than thought. Guests sleep deeply here. Something unlocks.</p>
+          <div class="room-tags"><span class="tag">Queen Canopy Bed</span><span class="tag">Private Bath</span><span class="tag">Valley View</span><span class="tag">Private Balcony</span></div>
+          <div class="room-footer">
+            <div><div class="price">$333</div><div class="price-note">per night · up to 2 guests</div></div>
+            <a href="#book" class="book-btn">Inquire to Book</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- GODDESS $222 -->
+      <div class="room-card">
+        <div class="room-photo" id="rGoddess"><div class="room-overlay"></div><div class="room-price-tag">$222 / night</div></div>
+        <div class="room-body">
+          <h3 class="room-name">Goddess Room</h3>
+          <p class="room-subtitle">Feminine Alchemy · Shakti · Radiance</p>
+          <p class="room-desc">A grand tufted velvet bed, star-light curtains, and soft lavender ambiance glowing through the trees. This room was made to hold the full spectrum of the feminine. Come here to receive. Your soul knows this frequency and has been waiting to return to it.</p>
+          <div class="room-tags"><span class="tag">Queen Bed</span><span class="tag">Garden View</span><span class="tag">Private Balcony</span><span class="tag">Altar Space</span><span class="tag">Goddess Frequency</span><span class="tag">Shared Bath</span></div>
+          <div class="room-footer">
+            <div><div class="price">$222</div><div class="price-note">per night · up to 2 guests</div></div>
+            <a href="#book" class="book-btn">Inquire to Book</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ANGEL'S DAWN $222 -->
+      <div class="room-card">
+        <div class="room-photo" id="rAngel"><div class="room-overlay"></div><div class="room-price-tag">$222 / night</div></div>
+        <div class="room-body">
+          <h3 class="room-name">Angel's Dawn</h3>
+          <p class="room-subtitle">Light Codes · Morning Clarity · Guardian Presence</p>
+          <p class="room-desc">White satin beds, gold angel wings on the walls, a pentagonal wooden mirror framing the morning sky over rolling hills. This room holds the light. Sleep in forest stillness, wake with the valley laid before you like an offering. Guests return to this room again and again for the quality of rest it holds.</p>
+          <div class="room-tags"><span class="tag">2 Twin Beds</span><span class="tag">Angel Wings</span><span class="tag">Mountain View</span><span class="tag">Morning Light</span><span class="tag">Shared Bath</span></div>
+          <div class="room-footer">
+            <div><div class="price">$222</div><div class="price-note">per night · up to 2 guests</div></div>
+            <a href="#book" class="book-btn">Inquire to Book</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- MERLIN'S MAGIC $444 -->
+      <div class="room-card">
+        <div class="room-photo" id="rMerlin"><div class="room-overlay"></div><div class="room-price-tag">$444 / night</div></div>
+        <div class="room-body">
+          <h3 class="room-name">Merlin's Magic</h3>
+          <p class="room-subtitle">Alchemy · Mystery · Deep Transformation</p>
+          <p class="room-desc">A king bed in a room painted floor to ceiling with an enchanted forest — fairies, unicorns, waterfalls, ancient trees, and magic — with a sacred lace tipi for the inner child to play again and a private bath. This is the room for the seeker, the alchemist. Magic is structural here. Something tends to shift in guests who sleep in this room.</p>
+          <div class="room-tags"><span class="tag">King Bed</span><span class="tag">Private Bath</span><span class="tag">Sacred Tipi</span><span class="tag">Jungle Mural</span><span class="tag">Garden Doors</span></div>
+          <div class="room-footer">
+            <div><div class="price">$444</div><div class="price-note">per night · up to 2 guests</div></div>
+            <a href="#book" class="book-btn">Inquire to Book</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ANCIENT KEMET $222 -->
+      <div class="room-card">
+        <div class="room-photo" id="rAncientKemet"><div class="room-overlay"></div><div class="room-price-tag">$222 / night</div></div>
+        <div class="room-body">
+          <h3 class="room-name">Ancient Kemet</h3>
+          <p class="room-subtitle">Royal Lineage · Mystery Schools · Sovereignty</p>
+          <p class="room-desc">This room holds the science of the Egyptian mystery schools — the understanding that the body is a temple, consciousness is the real material, and sovereignty begins within. Your soul remembers this.</p>
+          <div class="room-tags"><span class="tag">Queen Bed</span><span class="tag">Garden View</span><span class="tag">Sacred Space</span><span class="tag">Mystery School Frequency</span></div>
+          <div class="room-footer">
+            <div><div class="price">$222</div><div class="price-note">per night · up to 2 guests</div></div>
+            <a href="#book" class="book-btn">Inquire to Book</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- DRAGON ROOM $333 -->
+      <div class="room-card">
+        <div class="room-photo" id="rDragon"><div class="room-overlay"></div><div class="room-price-tag">$333 / night</div></div>
+        <div class="room-body">
+          <h3 class="room-name">Dragon Room</h3>
+          <p class="room-subtitle">Guardian of Thresholds · Sacred Power · Cosmic Wisdom</p>
+          <p class="room-desc">A four-poster bed in gold and white, presided over by a luminous dragon painting — keeper of ancient wisdom, guardian between worlds. Gold dragon altar on the nightstand and a private bath. For those ready to meet their own power, to remember what they came here to do, held by the oldest guardians of sacred knowledge.</p>
+          <div class="room-tags"><span class="tag">Queen Bed</span><span class="tag">Private Bath</span><span class="tag">Dragon Painting</span><span class="tag">Own Entrance</span><span class="tag">Sacred Art</span></div>
+          <div class="room-footer">
+            <div><div class="price">$333</div><div class="price-note">per night · up to 2 guests</div></div>
+            <a href="#book" class="book-btn">Inquire to Book</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CAMELOT $333 -->
+      <div class="room-card" style="grid-column: span 2;">
+        <div style="display:grid; grid-template-columns: 1fr 1fr;">
+          <div class="room-photo" id="rCamelot"><div class="room-overlay"></div><div class="room-price-tag">$444 / night</div></div>
+          <div class="room-body" style="display:flex; flex-direction:column; justify-content:center;">
+            <h3 class="room-name">Lotus Room</h3>
+            <p class="room-subtitle">Dreamtime · Biggest Room · Private Entry</p>
+            <p class="room-desc">A silver tufted headboard with dream catcher above, lotus flower bedding in soft pinks and teals, and an orange velvet chair beside a window that looks out over rolling hills and the valley below. A private balcony opens to the morning air. Attached to the kitchen with its own private side-door entry. The biggest room in the temple — a true sanctuary within the sanctuary.</p>
+            <div class="room-tags"><span class="tag">King Bed</span><span class="tag">Private Bath</span><span class="tag">Private Balcony</span><span class="tag">Valley View</span><span class="tag">Big Bathtub</span><span class="tag">Private Entry</span></div>
+            <div class="room-footer">
+              <div><div class="price">$333</div><div class="price-note">per night · up to 2 guests</div></div>
+              <a href="#book" class="book-btn">Inquire to Book</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="split-section">
+  <div class="split-photo" id="splitPhoto"></div>
+  <div class="split-body">
+    <div class="split-inner">
+      <p class="section-eyebrow">The Rogue Valley</p>
+      <h2 class="section-title">Ancient land.<br><em>Open sky.</em></h2>
+      <p class="split-text">Lotus Temple sits at elevation above the Rogue Valley, bordering a 500 acre elk reserve. Ancient grids run through this soil. Open meadows bloom purple with wildflowers in spring, oak groves hold centuries of stillness, and 360 degree mountain views stretch as far as the eye can carry. The land is always working on you here.</p>
+      <a href="#book" class="split-btn">Plan Your Stay</a>
+    </div>
+  </div>
+</div>
+
+
+<section class="exp-section" id="experience">
+  <div class="container">
+    <div class="exp-header">
+      <p class="section-eyebrow">While You Are Here</p>
+      <h2 class="section-title">The sanctuary <em>experience</em></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="exp-grid">
+      <div class="exp-card">
+        <span class="exp-icon">🌅</span>
+        <h3 class="exp-title">Morning Practice</h3>
+        <p class="exp-body">The mornings at Lotus Temple are extraordinary — the light here does something to the nervous system that is hard to describe until you feel it.</p>
+      </div>
+      <div class="exp-card">
+        <span class="exp-icon">🌸</span>
+        <h3 class="exp-title">Prayer Garden &amp; Labyrinth</h3>
+        <p class="exp-body">Walk the lavender labyrinth, sit with the Kuan Yin and Mother Mary in the rose garden and open to receive. The prayer garden was planted to hold space for meditation, answers, and guidance.</p>
+      </div>
+      <div class="exp-card">
+        <span class="exp-icon">💆</span>
+        <h3 class="exp-title">Healing Sessions</h3>
+        <p class="exp-body">Add a private Energy healing session or Vedic astrology reading to your stay. Practices designed to restore and extend your vitality. Available by request when booking.</p>
+      </div>
+      <div class="exp-card">
+        <span class="exp-icon">🔮</span>
+        <h3 class="exp-title">Sound &amp; Ceremony</h3>
+        <p class="exp-body">Crystal bowls and ceremonial gatherings woven through the week. The temple holds space for deep solitude and the kind of community that feels like remembering.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonial-section">
+  <div class="container">
+    <span class="quote-open">"</span>
+    <p class="quote-text">I came to Lotus Temple depleted — really depleted. I left with something I can only describe as myself. The ancient grids running through this land, the care woven into every room, every altar, every garden path. It changes something at a cellular level. I have stayed in beautiful places all over the world. This is the only one I dream about.</p>
+    <p class="quote-author">— A guest, returning for the third time</p>
+  </div>
+</section>
+
+<section class="booking-model-section">
+  <div class="container">
+    <div class="rooms-header">
+      <p class="section-eyebrow">Ways to Stay</p>
+      <h2 class="section-title">Design your <em>own retreat</em></h2>
+      <div class="divider"></div>
+      <p style="font-size:0.86rem;line-height:1.95;color:var(--text-mid);max-width:620px;margin:0 auto">
+        Lotus Temple holds 9 private rooms across the sanctuary &mdash; 2 king, 6 queen, and 1 twin &mdash; plus dome and glamping options upon request. This is an ashram-style sanctuary, so others may be living on and caring for the land alongside you, while still offering deeply private rooms and spaces. Book a single room, rent a wing for full privacy, or take over the entire sanctuary for a week.
+      </p>
+    </div>
+
+    <div class="rate-grid">
+      <div class="rate-card">
+        <p class="rate-label">Nightly Rates</p>
+        <div class="rate-row"><span>Queen, Shared Bath</span><span class="rate-amt">$222</span></div>
+        <div class="rate-row"><span>Queen, Private Bath</span><span class="rate-amt">$333</span></div>
+        <div class="rate-row"><span>King, Private Bath</span><span class="rate-amt">$444</span></div>
+        <div class="rate-row"><span>Twin, Shared Room</span><span class="rate-amt">$222</span></div>
+      </div>
+      <div class="rate-card rate-card-gold">
+        <p class="rate-label">Weekly Rates</p>
+        <div class="rate-row"><span>Queen, Private Bath</span><span class="rate-amt">$999</span></div>
+        <div class="rate-row"><span>Queen, Private Room</span><span class="rate-amt">$1,111</span></div>
+        <div class="rate-row"><span>King, Private Bath</span><span class="rate-amt">$2,222</span></div>
+        <div class="rate-row"><span>Twin, Shared Room</span><span class="rate-amt">$777</span></div>
+      </div>
+    </div>
+
+    <p style="text-align:center; font-size:0.78rem; letter-spacing:0.1em; color:var(--text-light); text-transform:uppercase; margin-top:1.5rem;">
+      Daily, weekly, and monthly rentals available &mdash; please inquire
+    </p>
+
+    <div class="whole-sanctuary">
+      <div class="whole-sanctuary-text">
+        <p class="section-eyebrow" style="color:var(--gold)">The Full Experience</p>
+        <h3 class="section-title" style="color:var(--gold-light); font-size:2rem;">Take over the <em style="color:var(--gold)">whole sanctuary</em></h3>
+        <p style="font-size:0.9rem;line-height:2;color:rgba(232,213,176,0.78); margin-bottom: 1.5rem;">
+          Pick a week and rent the entire space for yourself, your family, or your community. The Lotus Temple is a sacred place to gather people for group projects, transformational events or immersions &mdash; with our event dome available for ceremony and gathering. We have hosted incredible immersions and reunions of friends and family in this way.
+        </p>
+        <p style="font-size:0.9rem;line-height:2;color:rgba(232,213,176,0.78); margin-bottom: 1.5rem;">
+          For complete privacy, specific wings and rooms of the sanctuary can be rented exclusively &mdash; including the Shaman Dream room, a meditative ceremonial space where heaven and earth meet. This sanctuary is also a launch pad &mdash; a place to bring your projects and visions into form.
+        </p>
+        <a href="#book" class="split-btn">Inquire About Group Stays</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="booking-section" id="book">
+  <div class="container">
+    <p class="section-eyebrow">Reserve Your Stay</p>
+    <h2 class="section-title">The room <em>is waiting for you</em></h2>
+    <div class="divider"></div>
+    <p class="booking-body">Lotus Temple welcomes guests who are ready to truly arrive. We book on an intimate, intentional model. Send us a message and we will connect personally to find the right room, the right timing, and any sessions that call to you.</p>
+    <div class="booking-btns">
+      <a href="mailto:stay@lotustemple.life" class="booking-btn">Send an Inquiry</a>
+      <a href="tel:+1" class="booking-btn booking-btn-ghost">Call the Temple</a>
+    </div>
+    <p class="booking-note">Minimum 2-night stay &nbsp;·&nbsp; Arrivals by arrangement &nbsp;·&nbsp; lotustemple.life</p>
+  </div>
+</section>
+
+<section class="faq-section">
+  <div class="container">
+    <div class="faq-header">
+      <p class="section-eyebrow">Common Questions</p>
+      <h2 class="section-title">Before you <em>arrive</em></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item"><h3 class="faq-q">What is the minimum stay?</h3><p class="faq-a">Two nights minimum. Many guests choose to stay a week or longer — the land tends to make it hard to leave. Extended stay discounts available on request.</p></div>
+      <div class="faq-item"><h3 class="faq-q">What about food?</h3><p class="faq-a">Guests have access to a shared kitchen and are welcome to use it as their own.</p></div>
+      <div class="faq-item"><h3 class="faq-q">Can I add healing sessions?</h3><p class="faq-a">Yes. Private energy healing sessions and Vedic astrology readings are available as add-ons. Let us know when you inquire and we will build your stay around what you most need.</p></div>
+      <div class="faq-item"><h3 class="faq-q">What is the cancellation policy?</h3><p class="faq-a">Full refund with 2 weeks notice. Any cancellations after that become a credit toward a future stay — your investment stays with the land.</p></div>
+      <div class="faq-item"><h3 class="faq-q">Is Lotus Temple a sober space?</h3><p class="faq-a">Yes. Lotus Temple is sober land. We ask that all guests honor this — no marijuana, tobacco, or alcohol on the property. This is part of what keeps the frequency of the land clear and available for deep healing work.</p></div>
+      <div class="faq-item"><h3 class="faq-q">Is this pet or child friendly?</h3><p class="faq-a">The sanctuary holds a delicate frequency and we ask guests to inquire about children and pets on a case-by-case basis. We want every guest to have the experience they came for.</p></div>
+      <div class="faq-item"><h3 class="faq-q">How do I get here?</h3><p class="faq-a">Lotus Temple is located near Ashland, Oregon. Detailed arrival instructions are shared upon booking. The Rogue Valley airport (MFR) is nearest. Portland is accessible for those traveling from further.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Lotus Temple</div>
+  <p class="footer-place">Sacred Sanctuary Stays &nbsp;·&nbsp; Ashland, Oregon</p>
+  <ul class="footer-links">
+    <li><a href="#reset">The Reset</a></li>
+    <li><a href="#rooms">Sacred Stays</a></li>
+    <li><a href="#land">The Land</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="mailto:stay@lotustemple.life">Email Us</a></li>
+    <li><a href="https://lotustemple.life">lotustemple.life</a></li>
+  </ul>
+  <p class="footer-fine">&copy; 2025 Lotus Temple &nbsp;·&nbsp; All rights reserved &nbsp;·&nbsp; Ashland, Oregon</p>
+</footer>
+
+<script>
+const imgs = {
+  "aerial_hero": "images/aerial_hero.png",
+  "sanctuary_aerial2": "images/sanctuary_aerial2.jpg",
+  "sanctuary_aerial3": "images/sanctuary_aerial3.jpg",
+  "retreat_still": "images/retreat_still.jpg",
+  "garden_arch_lavender": "images/garden_arch_lavender.jpg",
+  "kuan_yin_valley": "images/kuan_yin_valley.jpg",
+  "mary_garden": "images/mary_garden.jpg",
+  "buddha_maple": "images/buddha_maple.jpg",
+  "lemuria_room2": "images/lemuria_room2.jpg",
+  "goddess_full": "images/goddess_full.jpg",
+  "angels_dawn1": "images/angels_dawn1.jpg",
+  "jungle_tent": "images/jungle_tent.jpg",
+  "lemuria_wide": "images/lemuria_wide.jpg",
+  "dragon_room2": "images/dragon_room2.jpg",
+  "camelot_room1": "images/camelot_room1.jpg",
+  "shaman_room": "images/ceremony_room.jpg",
+  "temple_hillside_dusk": "images/temple_hillside_dusk.jpg",
+  "ceremony_room": "images/ceremony_room.jpg",
+  "garden_pond_golden": "images/garden_pond_golden.jpg"
+};
+
+// Hero: golden hour aerial
+document.getElementById('heroBg').style.backgroundImage = `url(${imgs.aerial_hero})`;
+
+// Land gallery — sanctuary aerials + garden
+document.getElementById('landMain').style.backgroundImage = `url(${imgs.sanctuary_aerial3})`;
+document.getElementById('landA').style.backgroundImage = `url(${imgs.sanctuary_aerial2})`;
+document.getElementById('landB').style.backgroundImage = `url(${imgs.garden_arch_lavender})`;
+document.getElementById('landC').style.backgroundImage = `url(${imgs.kuan_yin_valley})`;
+document.getElementById('landD').style.backgroundImage = `url(${imgs.mary_garden})`;
+
+// Rooms
+document.getElementById('rLemuria').style.backgroundImage = `url(${imgs.lemuria_room2})`;
+document.getElementById('rGoddess').style.backgroundImage = `url(${imgs.goddess_full})`;
+document.getElementById('rAngel').style.backgroundImage = `url(${imgs.angels_dawn1})`;
+document.getElementById('rMerlin').style.backgroundImage = `url(${imgs.jungle_tent})`;
+document.getElementById('rAncientKemet').style.backgroundImage = `url(${imgs.lemuria_wide})`;
+document.getElementById('rDragon').style.backgroundImage = `url(${imgs.dragon_room})`;
+document.getElementById('rCamelot').style.backgroundImage = `url(${imgs.camelot_room1})`;
+document.getElementById('rShaman').style.backgroundImage = `url(${imgs.shaman_room})`;
+
+// Split section
+document.getElementById('splitPhoto').style.backgroundImage = `url(${imgs.ceremony_room})`;
+
+// Hero parallax — desktop only
+if (window.innerWidth > 768) {
+  const heroBg = document.getElementById('heroBg');
+  window.addEventListener('scroll', () => {
+    heroBg.style.transform = `scale(1.05) translateY(${window.scrollY * 0.2}px)`;
+  });
+}
+</script>
+</body>
+</html>
