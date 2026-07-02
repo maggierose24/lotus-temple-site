@@ -718,7 +718,12 @@ const imgs = {
   "temple_hillside_dusk": "images/temple_hillside_dusk.jpg",
   "ceremony_room": "images/ceremony_room.jpg",
   "garden_pond_golden": "images/garden_pond_golden.jpg",
-  "kemet_room": "images/kemet_room.jpg"
+  "kemet_room": "images/kemet_room.jpg",
+  "merlin_room1": "images/merlin_room1.jpg",
+  "merlin_room2": "images/merlin_room2.jpg",
+  "enchanted_room1": "images/enchanted_room1.jpg",
+  "enchanted_room2": "images/enchanted_room2.jpg",
+  "goddess_room2": "images/goddess_room2.jpg"
 };
 
 // Hero: golden hour aerial
@@ -744,7 +749,10 @@ document.getElementById('splitPhoto').style.backgroundImage = `url(${imgs.ceremo
 const roomPhotos = {
   "rLemuria": [imgs.lemuria_room2, imgs.lemuria_wide],
   "rCamelot": [imgs.lotus_room1, imgs.lotus_room2],
-  "rNewCamelot": [imgs.camelot_room1, imgs.camelot_room2]
+  "rNewCamelot": [imgs.camelot_room1, imgs.camelot_room2],
+  "rMerlin": [imgs.merlin_room1, imgs.merlin_room2, imgs.jungle_tent],
+  "rEnchanted": [imgs.enchanted_room1, imgs.enchanted_room2],
+  "rGoddess": [imgs.goddess_full, imgs.goddess_room2]
 };
 Object.entries(roomPhotos).forEach(([id, photos]) => {
   const el = document.getElementById(id);
