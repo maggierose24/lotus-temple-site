@@ -77,9 +77,9 @@ nav {
 /* LAND */
 .land-section { background: var(--warm-white); padding: 5rem 0 0; border-top: 1px solid var(--gold-light); }
 .land-header { text-align: center; padding: 0 1.5rem 2.5rem; }
-.land-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 300px 300px; gap: 3px; }
+.land-grid { display: grid; grid-template-columns: 1fr; grid-template-rows: 600px; gap: 3px; }
 .land-img { background-size: cover; background-position: center; transition: opacity 0.4s; }
-.land-img.tall { grid-row: span 2; }
+.land-img.tall { grid-row: span 1; }
 .land-caption { background: var(--warm-white); padding: 1.5rem 2rem; text-align: center; border-top: 1px solid var(--gold-light); }
 .land-caption p { font-size: 0.72rem; letter-spacing: 0.15em; color: var(--gold-dark); text-transform: uppercase; }
 
@@ -201,8 +201,7 @@ footer { background: var(--warm-white); text-align: center; padding: 3.5rem 1.5r
   .pillars { grid-template-columns: 1fr; gap: 1rem; }
   .pillar { padding: 1.5rem 1.25rem; }
 
-  .land-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 180px 180px 180px; }
-  .land-img.tall { grid-row: span 1; }
+  .land-grid { grid-template-columns: 1fr; grid-template-rows: 320px; }
 
   .grid-stats { grid-template-columns: 1fr; gap: 1rem; }
   .grid-stat { padding: 1.5rem 1.25rem; }
@@ -238,7 +237,7 @@ footer { background: var(--warm-white); text-align: center; padding: 3.5rem 1.5r
 
 @media (max-width: 480px) {
   .exp-grid { grid-template-columns: 1fr; }
-  .land-grid { grid-template-columns: 1fr; grid-template-rows: repeat(5, 200px); }
+  .land-grid { grid-template-columns: 1fr; grid-template-rows: 260px; }
 }
 </style>
 </head>
@@ -327,10 +326,6 @@ footer { background: var(--warm-white); text-align: center; padding: 3.5rem 1.5r
   </div>
   <div class="land-grid">
     <div class="land-img tall" id="landMain"></div>
-    <div class="land-img" id="landA"></div>
-    <div class="land-img" id="landB"></div>
-    <div class="land-img" id="landC"></div>
-    <div class="land-img" id="landD"></div>
   </div>
   <div class="land-caption"><p>Ancient grids · Prayer garden · Lavender labyrinth · Kuan Yin · Temple on the hillside</p></div>
 </section>
@@ -454,7 +449,7 @@ footer { background: var(--warm-white); text-align: center; padding: 3.5rem 1.5r
 
 
 
-      
+
       <!-- ENCHANTED FOREST -->
       <div class="room-card">
         <div class="room-photo" id="rEnchanted" style="background-image:url('images/garden_arch_lavender.jpg')"><div class="room-overlay"></div><div class="room-price-tag">$222 / night</div></div>
@@ -693,7 +688,8 @@ const imgs = {
   "shaman_room": "images/ceremony_room.jpg",
   "temple_hillside_dusk": "images/temple_hillside_dusk.jpg",
   "ceremony_room": "images/ceremony_room.jpg",
-  "garden_pond_golden": "images/garden_pond_golden.jpg"
+  "garden_pond_golden": "images/garden_pond_golden.jpg",
+  "kemet_room": "images/kemet_room.jpg"
 };
 
 // Hero: golden hour aerial
@@ -701,17 +697,13 @@ document.getElementById('heroBg').style.backgroundImage = `url(${imgs.aerial_her
 
 // Land gallery — sanctuary aerials + garden
 document.getElementById('landMain').style.backgroundImage = `url(${imgs.retreat_still})`;
-document.getElementById('landA').style.backgroundImage = `url(${imgs.garden_pond_golden})`;
-document.getElementById('landB').style.backgroundImage = `url(${imgs.garden_arch_lavender})`;
-document.getElementById('landC').style.backgroundImage = `url(${imgs.kuan_yin_valley})`;
-document.getElementById('landD').style.backgroundImage = `url(${imgs.mary_garden})`;
 
 // Rooms
 document.getElementById('rLemuria').style.backgroundImage = `url(${imgs.lemuria_room2})`;
 document.getElementById('rGoddess').style.backgroundImage = `url(${imgs.goddess_full})`;
 document.getElementById('rAngel').style.backgroundImage = `url(${imgs.angels_dawn1})`;
 document.getElementById('rMerlin').style.backgroundImage = `url(${imgs.jungle_tent})`;
-document.getElementById('rAncientKemet').style.backgroundImage = `url(${imgs.lemuria_wide})`;
+document.getElementById('rAncientKemet').style.backgroundImage = `url(${imgs.kemet_room})`;
 document.getElementById('rDragon').style.backgroundImage = `url(${imgs.dragon_room})`;
 document.getElementById('rCamelot').style.backgroundImage = `url(${imgs.lotus_room1})`;
 document.getElementById('rShaman').style.backgroundImage = `url(${imgs.shaman_dream})`;
