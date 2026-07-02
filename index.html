@@ -101,6 +101,10 @@ nav {
 .room-photo { height: 280px; background-size: cover; background-position: center; position: relative; }
 .room-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 45%, rgba(58,46,30,0.7) 100%); }
 .room-price-tag { position: absolute; bottom: 1.1rem; right: 1.1rem; background: rgba(255,254,249,0.92); color: var(--gold-dark); font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; padding: 0.38rem 1rem; border: 1px solid var(--gold); }
+.photo-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 34px; height: 34px; border-radius: 50%; background: rgba(255,254,249,0.88); color: var(--gold-dark); border: 1px solid var(--gold); cursor: pointer; z-index: 3; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; line-height: 1; transition: background 0.25s; }
+.photo-arrow:hover { background: var(--gold-light); }
+.photo-arrow.prev { left: 0.75rem; }
+.photo-arrow.next { right: 0.75rem; }
 .room-body { padding: 1.75rem 2rem 2.25rem; }
 .room-name { font-family: 'Cormorant Garamond', serif; font-size: 1.65rem; font-weight: 400; color: var(--forest); margin-bottom: 0.3rem; }
 .room-subtitle { font-size: 0.62rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 1rem; }
@@ -735,6 +739,28 @@ document.getElementById('rShaman').style.backgroundImage = `url(${imgs.shaman_dr
 
 // Split section
 document.getElementById('splitPhoto').style.backgroundImage = `url(${imgs.ceremony_room})`;
+
+// Room photo carousels — rooms with more than one photo get arrows
+const roomPhotos = {
+  "rLemuria": [imgs.lemuria_room2, imgs.lemuria_wide],
+  "rCamelot": [imgs.lotus_room1, imgs.lotus_room2],
+  "rNewCamelot": [imgs.camelot_room1, imgs.camelot_room2]
+};
+Object.entries(roomPhotos).forEach(([id, photos]) => {
+  const el = document.getElementById(id);
+  if (!el || photos.length < 2) return;
+  let i = 0;
+  const show = () => { el.style.backgroundImage = `url(${photos[i]})`; };
+  show();
+  [["prev","&#10094;",-1],["next","&#10095;",1]].forEach(([cls, glyph, step]) => {
+    const b = document.createElement('button');
+    b.className = 'photo-arrow ' + cls;
+    b.innerHTML = glyph;
+    b.setAttribute('aria-label', cls + ' photo');
+    b.addEventListener('click', (e) => { e.preventDefault(); i = (i + step + photos.length) % photos.length; show(); });
+    el.appendChild(b);
+  });
+});
 
 // Hero parallax — desktop only
 if (window.innerWidth > 768) {
